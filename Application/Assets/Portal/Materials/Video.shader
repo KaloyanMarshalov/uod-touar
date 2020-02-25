@@ -6,6 +6,7 @@ Shader "Unlit/SponzaShader"
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		[Enum(CompareFunction)] _StencilComp("Stencil Comp", Int) = 3
 	}
 	SubShader
 	{
@@ -15,6 +16,10 @@ Shader "Unlit/SponzaShader"
 
 		Pass
 		{
+			Stencil {
+				Ref 1
+				Comp [_StencilComp]
+			}
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag

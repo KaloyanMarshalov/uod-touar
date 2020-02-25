@@ -3,6 +3,10 @@
 
 Shader "Unlit/Portal"
 {
+	Properties
+	{
+		[Enum(CullMode)] _CullMode("Cull Mode", Int) = 0
+	}
 	SubShader
 	{
 		Tags { "RenderType"="Opaque" }
