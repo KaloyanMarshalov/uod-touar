@@ -8,6 +8,8 @@ using System.Xml;
 
 public class MarkerSpawner : MonoBehaviour
 {
+	public string _fileName;
+
 	[SerializeField]
 	AbstractMap _map;
 
@@ -17,7 +19,7 @@ public class MarkerSpawner : MonoBehaviour
 	Vector2d[] _locations;
 
 	[SerializeField]
-	float _spawnScale = 100f;
+	float _spawnScale = 200f;
 
 	[SerializeField]
 	GameObject _markerPrefab;
@@ -26,7 +28,7 @@ public class MarkerSpawner : MonoBehaviour
 
 	void Start()
 	{
-		_locationStrings = LoadCoordinateFromXMLFile("Assets/Portal/Resources/MapData/campusBuildings.xml");
+		_locationStrings = LoadCoordinateFromXMLFile(_fileName);
 
 		_locations = new Vector2d[_locationStrings.Length];
 		_spawnedObjects = new List<GameObject>();
@@ -53,13 +55,15 @@ public class MarkerSpawner : MonoBehaviour
 		}
 	}
 
-	private string[] LoadCoordinateFromXMLFile(string pathToFile)
+	private string[] LoadCoordinateFromXMLFile(string filename)
 	{
 		List<string> coordinates = new List<string>();
 
-		XmlDocument doc = new XmlDocument();
-		doc.Load(pathToFile);
-		XmlNodeList elements = doc.GetElementsByTagName("coordinates");
+		TextAsset textAsset = (TextAsset)Resources.Load(filename);
+		XmlDocument xmldoc = new XmlDocument();
+		xmldoc.LoadXml(textAsset.text);
+
+		XmlNodeList elements = xmldoc.GetElementsByTagName("coordinates");
 		for(int i = 0; i < elements.Count; i++)
 		{
 			string[] values = elements[i].InnerXml.Trim().Split(',');
