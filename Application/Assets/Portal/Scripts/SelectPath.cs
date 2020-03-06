@@ -56,7 +56,7 @@ public class SelectPath : MonoBehaviour
                 float x = Mathf.Cos(angle) * radius;
                 float z = Mathf.Sin(angle) * radius;
                 Vector3 pos = ARCamera.transform.position + new Vector3(x, 0, z);
-                float angleDegrees = -angle * Mathf.Rad2Deg;
+                float angleDegrees = -angle * Mathf.Rad2Deg - 90;
                 Quaternion rot = Quaternion.Euler(0, angleDegrees, 0);
                 GameObject frame = Instantiate(PictureFrame, pos, rot) as GameObject;
                 frame.transform.parent = frameContainer.transform;
