@@ -29,7 +29,12 @@ public class SelectPath : MonoBehaviour
         RaycastHit hitObject;
         if (Physics.Raycast(ray, out hitObject))
         {
-            hitObject.transform.localScale += new Vector3(1, 1, 1);
+            string pathName = hitObject.transform.Find("Text").GetComponent<TextMesh>().text;
+            GameObject.Find("FrameContainer").Destroy();
+            GameObject.Find("SelectedMessage").SetActive(true);
+            GameObject.Find("SelectedMessage").GetComponent<Text>().text = pathName + " Selected!";
+            //Hide the button -> make it a permanent decision
+            GameObject.Find("PathsButton").SetActive(false);
         }
     }
 
@@ -60,8 +65,10 @@ public class SelectPath : MonoBehaviour
                 Quaternion rot = Quaternion.Euler(0, angleDegrees, 0);
                 GameObject frame = Instantiate(PictureFrame, pos, rot) as GameObject;
                 frame.transform.parent = frameContainer.transform;
-                //Change shader image
-                //Change text above image
+
+                //Change the text above the frame
+                frame.transform.Find("Text").GetComponent<TextMesh>().text = "Path " + i;
+                //TODO: Change shader image
             }
         }
     }
