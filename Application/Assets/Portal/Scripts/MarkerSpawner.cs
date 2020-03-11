@@ -24,6 +24,9 @@ public class MarkerSpawner : MonoBehaviour
 	[SerializeField]
 	GameObject _markerPrefab;
 
+	[SerializeField]
+	Transform _markerHolder;
+
 	List<GameObject> _spawnedObjects;
 
 	void Start()
@@ -36,7 +39,7 @@ public class MarkerSpawner : MonoBehaviour
 		{
 			var locationString = _locationStrings[i];
 			_locations[i] = Conversions.StringToLatLon(locationString);
-			var instance = Instantiate(_markerPrefab);
+			var instance = Instantiate(_markerPrefab, _markerHolder);
 			instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
 			instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 			_spawnedObjects.Add(instance);
