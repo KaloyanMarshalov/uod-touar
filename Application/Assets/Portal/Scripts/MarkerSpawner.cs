@@ -27,6 +27,9 @@ public class MarkerSpawner : MonoBehaviour
 	[SerializeField]
 	Transform _markerHolder;
 
+	[SerializeField]
+	GameObject _directionObject;
+
 	List<GameObject> _spawnedObjects;
 
 	void Start()
@@ -35,6 +38,7 @@ public class MarkerSpawner : MonoBehaviour
 
 		_locations = new Vector2d[_locationStrings.Length];
 		_spawnedObjects = new List<GameObject>();
+		//Spawn markers on the canvas
 		for (int i = 0; i < _locationStrings.Length; i++)
 		{
 			var locationString = _locationStrings[i];
@@ -44,6 +48,9 @@ public class MarkerSpawner : MonoBehaviour
 			instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 			_spawnedObjects.Add(instance);
 		}
+
+		//Start path finding
+		_directionObject.SetActive(true);
 	}
 
 	private void Update()

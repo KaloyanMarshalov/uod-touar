@@ -23,13 +23,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Mapbox/Examples/2_AstronautGame/AstronautGame.unity
     guid: 23b3522d4f6fa450eb781397db4b26ed
-  - enabled: 0
+  - enabled: 1
     path: Assets/Portal/Scenes/Location.unity
     guid: 42f6aa7ce7a604f16ade319663f46ceb
   - enabled: 0
     path: Assets/Mapbox/Examples/6_ZoomableMap/ZoomableMap.unity
     guid: 2c7147d54825142878b256c67aae5704
-  - enabled: 1
+  - enabled: 0
     path: Assets/Portal/Scenes/SelectPath.unity
     guid: f31d907b328780a41844fee9d54b0ebe
   m_configObjects: {}

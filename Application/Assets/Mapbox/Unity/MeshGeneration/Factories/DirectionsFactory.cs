@@ -23,6 +23,8 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 
 		[SerializeField]
 		Transform[] _waypoints;
+		[SerializeField]
+		Transform _waypointsContainer;
 		private List<Vector3> _cachedWaypoints;
 
 		[SerializeField]
@@ -50,6 +52,14 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 
 		public void Start()
 		{
+			//Fill out waypoints
+			List<Transform> markers = new List<Transform>();
+			for (int i = 0; i < _waypointsContainer.childCount; i++)
+			{
+				markers.Add(_waypointsContainer.GetChild(i));
+			}
+			_waypoints = markers.ToArray();
+		
 			_cachedWaypoints = new List<Vector3>(_waypoints.Length);
 			foreach (var item in _waypoints)
 			{
