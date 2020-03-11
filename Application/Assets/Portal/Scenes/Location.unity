@@ -312,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766068249}
+  - component: {fileID: 766068250}
   m_Layer: 0
   m_Name: MarkerHolder
   m_TagString: Untagged
@@ -333,6 +334,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766068250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766068248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87308cf5f765bc44ab08a8a11a5b76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fileName: campusBuildings
+  _map: {fileID: 843921213}
+  _locationStrings: []
+  _spawnScale: 200
+  _markerPrefab: {fileID: 1196953851599986, guid: 5bcb8afe019d04efc83e86f56b198ce0,
+    type: 3}
+  _markerHolder: {fileID: 766068249}
 --- !u!1001 &843921207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -977,26 +997,6 @@ MonoBehaviour:
   _referenceCamera: {fileID: 8030623}
   _mapManager: {fileID: 843921213}
   _useDegreeMethod: 0
---- !u!114 &843921212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843921210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87308cf5f765bc44ab08a8a11a5b76b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fileName: campusBuildings
-  _map: {fileID: 843921213}
-  _locationStrings:
-  - 56.4572033, -2.97826540000005
-  _spawnScale: 100
-  _markerPrefab: {fileID: 1196953851599986, guid: 5bcb8afe019d04efc83e86f56b198ce0,
-    type: 3}
-  _markerHolder: {fileID: 766068249}
 --- !u!114 &843921213 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114105500206378512, guid: 35ce2bb4caba9434db5e656796b632b1,
