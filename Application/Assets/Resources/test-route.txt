@@ -1,0 +1,130 @@
+{
+  "routes": [
+    {
+      "weight_name": "routability",
+      "legs": [
+        {
+          "summary": "Park Place",
+          "steps": [],
+          "distance": 324.775,
+          "duration": 228.715,
+          "weight": 228.715
+        },
+        {
+          "summary": "Nethergate, Perth Road",
+          "steps": [],
+          "distance": 130.875,
+          "duration": 94.165,
+          "weight": 94.165
+        },
+        {
+          "summary": "Perth Road",
+          "steps": [],
+          "distance": 124.925,
+          "duration": 87.976,
+          "weight": 87.976
+        },
+        {
+          "summary": "Perth Road, Airlie Place",
+          "steps": [],
+          "distance": 115.425,
+          "duration": 81.285,
+          "weight": 81.285
+        },
+        {
+          "summary": "Peters Lane",
+          "steps": [],
+          "distance": 137,
+          "duration": 96.479,
+          "weight": 96.479
+        },
+        {
+          "summary": "Small's Wynd",
+          "steps": [],
+          "distance": 161.643,
+          "duration": 114.833,
+          "weight": 114.833
+        },
+        {
+          "summary": "Small's Wynd, Old Hawkhill",
+          "steps": [],
+          "distance": 122.643,
+          "duration": 86.369,
+          "weight": 86.369
+        }
+      ],
+      "geometry": "kfrwI~_eQvBmBt@}@r@eAnFcKFKZdCZdE@z@RvEZrD@JeDjEIYMP]oAHw@Cc@_A{CsAxBeCfDSJRKcAsDQgC",
+      "distance": 1117.287,
+      "duration": 789.822,
+      "weight": 789.822
+    }
+  ],
+  "waypoints": [
+    {
+      "distance": 1.485,
+      "name": "Park Place",
+      "location": [
+        -2.979991,
+        56.459423
+      ]
+    },
+    {
+      "distance": 1.806,
+      "name": "Park Place",
+      "location": [
+        -2.976846,
+        56.457092
+      ]
+    },
+    {
+      "distance": 1.279,
+      "name": "Perth Road",
+      "location": [
+        -2.978745,
+        56.456764
+      ]
+    },
+    {
+      "distance": 2.668,
+      "name": "Perth Road",
+      "location": [
+        -2.980721,
+        56.456528
+      ]
+    },
+    {
+      "distance": 1.015,
+      "name": "Airlie Place",
+      "location": [
+        -2.981804,
+        56.45734
+      ]
+    },
+    {
+      "distance": 3.283,
+      "name": "Peters Lane",
+      "location": [
+        -2.980129,
+        56.457905
+      ]
+    },
+    {
+      "distance": 5.268,
+      "name": "Small's Wynd",
+      "location": [
+        -2.981636,
+        56.459099
+      ]
+    },
+    {
+      "distance": 1.485,
+      "name": "Old Hawkhill",
+      "location": [
+        -2.979991,
+        56.459423
+      ]
+    }
+  ],
+  "code": "Ok",
+  "uuid": "Y32LGw1fi7jvpXzB21X0uaPFbcBJ3uv93e4ERfozLVcWcETinqZtLg=="
+}
