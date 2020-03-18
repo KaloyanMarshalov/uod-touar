@@ -44,6 +44,7 @@ public class RouteController : MonoBehaviour
 	{
 		_directions = MapboxAccess.Instance.Directions;
 		_map.OnInitialized += Query;
+		_filePath = "Routes/" + PlayerPrefs.GetString("path");
 		/*_map.OnUpdated += Query;*/
 	}
 

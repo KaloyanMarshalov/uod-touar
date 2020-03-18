@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectPath : MonoBehaviour
@@ -35,6 +36,8 @@ public class SelectPath : MonoBehaviour
             GameObject.Find("SelectedMessage").GetComponent<Text>().text = pathName + " Selected!";
             //Hide the button -> make it a permanent decision
             GameObject.Find("PathsButton").SetActive(false);
+            PlayerPrefs.SetString("path", pathName);
+            SceneManager.LoadScene("Location");
         }
     }
 
