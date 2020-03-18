@@ -22,7 +22,7 @@ public class RouteController : MonoBehaviour
 	[SerializeField]
 	Material _material;
 	[SerializeField]
-	string _filePath;
+	public string _filePath;
 
 	[SerializeField]
 	Transform[] _waypoints;
@@ -171,5 +171,12 @@ public class RouteController : MonoBehaviour
 		mesh.RecalculateNormals();
 		_directionsGO.AddComponent<MeshRenderer>().material = _material;
 		return _directionsGO;
+	}
+
+	//OnClickEvent
+	public void ChangePath(string pathName)
+	{
+		_filePath = pathName;
+		_recalculateNext = true;
 	}
 }
