@@ -21,6 +21,8 @@ public class RouteController : MonoBehaviour
 	MeshModifier[] MeshModifiers;
 	[SerializeField]
 	Material _material;
+	[SerializeField]
+	string _filePath;
 
 	[SerializeField]
 	Transform[] _waypoints;
@@ -113,7 +115,7 @@ public class RouteController : MonoBehaviour
 
 	void HandleDirectionsResponse(DirectionsResponse response)
 	{
-		TextAsset textAsset = (TextAsset)Resources.Load("test-route");
+		TextAsset textAsset = (TextAsset)Resources.Load(_filePath);
 		string json = textAsset.text;
 
 		response = JsonConvert.DeserializeObject<DirectionsResponse>(json, JsonConverters.Converters);

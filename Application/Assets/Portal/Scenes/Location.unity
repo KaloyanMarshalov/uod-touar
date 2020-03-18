@@ -1183,6 +1183,7 @@ MonoBehaviour:
   MeshModifiers:
   - {fileID: 11400000, guid: 72a54fd58e79618408c60d91df61d553, type: 2}
   _material: {fileID: 2100000, guid: ef6c956ca085647fba4624a08c344419, type: 2}
+  _filePath: test-route
   _waypoints: []
   _waypointsContainer: {fileID: 766068249}
   UpdateFrequency: 5

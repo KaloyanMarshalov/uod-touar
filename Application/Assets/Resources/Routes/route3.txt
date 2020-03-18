@@ -1,0 +1,205 @@
+{
+  "routes": [
+    {
+      "weight_name": "routability",
+      "legs": [
+        {
+          "summary": "Small's Wynd",
+          "steps": [],
+          "distance": 135.689,
+          "duration": 95.555,
+          "weight": 95.555
+        },
+        {
+          "summary": "Small's Wynd",
+          "steps": [],
+          "distance": 104.823,
+          "duration": 73.819,
+          "weight": 73.819
+        },
+        {
+          "summary": "Park Place",
+          "steps": [],
+          "distance": 102.765,
+          "duration": 72.369,
+          "weight": 72.369
+        },
+        {
+          "summary": "",
+          "steps": [],
+          "distance": 25.235,
+          "duration": 17.771,
+          "weight": 17.771
+        },
+        {
+          "summary": "",
+          "steps": [],
+          "distance": 92,
+          "duration": 64.789,
+          "weight": 64.789
+        },
+        {
+          "summary": "Small's Lane",
+          "steps": [],
+          "distance": 52.511,
+          "duration": 36.979,
+          "weight": 36.979
+        },
+        {
+          "summary": "Small's Lane, Small's Wynd",
+          "steps": [],
+          "distance": 123.489,
+          "duration": 86.964,
+          "weight": 86.964
+        },
+        {
+          "summary": "Old Hawkhill",
+          "steps": [],
+          "distance": 117.751,
+          "duration": 82.923,
+          "weight": 82.923
+        },
+        {
+          "summary": "Old Hawkhill",
+          "steps": [],
+          "distance": 121.202,
+          "duration": 86.354,
+          "weight": 86.354
+        },
+        {
+          "summary": "Mount Pleasant, Hawkhill Place",
+          "steps": [],
+          "distance": 194.548,
+          "duration": 137.006,
+          "weight": 137.006
+        },
+        {
+          "summary": "Park Wynd, Cross Row",
+          "steps": [],
+          "distance": 206.447,
+          "duration": 145.385,
+          "weight": 145.385
+        },
+        {
+          "summary": "Cross Row, Small's Wynd",
+          "steps": [],
+          "distance": 85.938,
+          "duration": 60.52,
+          "weight": 60.52
+        }
+      ],
+      "geometry": "k|qwIb`eQxD}GHIa@a@cAmC_@[cCtEDLZ|@gChDt@jCPj@eCfD[NCXIHx@|GMKLJbAtIL`AzAeB|@gAP{@c@}CGYYGPWUEJ]QiAy@yCj@s@?UYiAOs@~AkC",
+      "distance": 1362.398,
+      "duration": 960.435,
+      "weight": 960.435
+    }
+  ],
+  "waypoints": [
+    {
+      "distance": 1.232,
+      "name": "Small's Wynd",
+      "location": [
+        -2.980016,
+        56.457829
+      ]
+    },
+    {
+      "distance": 2.683,
+      "name": "Small's Wynd",
+      "location": [
+        -2.978585,
+        56.45689
+      ]
+    },
+    {
+      "distance": 1.354,
+      "name": "",
+      "location": [
+        -2.97752,
+        56.457516
+      ]
+    },
+    {
+      "distance": 2.805,
+      "name": "",
+      "location": [
+        -2.978651,
+        56.458149
+      ]
+    },
+    {
+      "distance": 1.724,
+      "name": "",
+      "location": [
+        -2.978966,
+        56.458004
+      ]
+    },
+    {
+      "distance": 4.517,
+      "name": "",
+      "location": [
+        -2.979812,
+        56.458687
+      ]
+    },
+    {
+      "distance": 0.979,
+      "name": "Small's Lane",
+      "location": [
+        -2.980514,
+        56.458416
+      ]
+    },
+    {
+      "distance": 4.576,
+      "name": "Small's Wynd",
+      "location": [
+        -2.981658,
+        56.459133
+      ]
+    },
+    {
+      "distance": 3.811,
+      "name": "",
+      "location": [
+        -2.983206,
+        56.458984
+      ]
+    },
+    {
+      "distance": 1.831,
+      "name": "Old Hawkhill",
+      "location": [
+        -2.984977,
+        56.458572
+      ]
+    },
+    {
+      "distance": 3.818,
+      "name": "",
+      "location": [
+        -2.983342,
+        56.457821
+      ]
+    },
+    {
+      "distance": 0.134,
+      "name": "Cross Row",
+      "location": [
+        -2.980994,
+        56.458244
+      ]
+    },
+    {
+      "distance": 2.733,
+      "name": "Small's Wynd",
+      "location": [
+        -2.980036,
+        56.457844
+      ]
+    }
+  ],
+  "code": "Ok",
+  "uuid": "Mn2HRXbc4rpPYIeVfGjaC-JHi4Fo9WfWdQseik5S-SxHDdmdjSi0YA=="
+}
