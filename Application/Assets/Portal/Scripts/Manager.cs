@@ -11,10 +11,17 @@ public class Manager : MonoBehaviour
     Sprite _cameraImage;
     [SerializeField]
     Sprite _mapImage;
+    private GameObject[] arButtons;
 
     private void Awake()
     {
         SceneManager.LoadScene("Location");
+        arButtons = GameObject.FindGameObjectsWithTag("ExtraARButtons");
+
+        foreach (GameObject button in arButtons)
+        {
+            button.SetActive(false);
+        }
     }
 
     public void switchScenes()
@@ -31,6 +38,17 @@ public class Manager : MonoBehaviour
         {
             SceneManager.LoadScene("SelectPath");
             EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<Image>()[1].sprite = _mapImage;
+        }
+    }
+
+
+    public void changeARButtonsState()
+    {
+        bool state = !arButtons[0].activeSelf;
+
+        foreach(GameObject button in arButtons)
+        {
+            button.SetActive(state);
         }
     }
 }
