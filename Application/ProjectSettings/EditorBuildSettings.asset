@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Portal/Scenes/UI.unity
     guid: 4476e02254accde45a166c6abbfc1463
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Portal/Scenes/Location.unity
+    guid: 42f6aa7ce7a604f16ade319663f46ceb
+  - enabled: 1
     path: Assets/Portal/Scenes/Portal.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Portal/Scenes/360Image.unity
     guid: c2084972468e2ff498709ff699cddfef
+  - enabled: 1
+    path: Assets/Portal/Scenes/SelectPath.unity
+    guid: f31d907b328780a41844fee9d54b0ebe
   - enabled: 0
     path: Assets/MapboxAR/Examples/Scenes/WorldScaleAR.unity
     guid: c60dfd6bb74264e44b3dbf93e9d129c4
@@ -29,10 +35,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Mapbox/Examples/6_ZoomableMap/ZoomableMap.unity
     guid: 2c7147d54825142878b256c67aae5704
-  - enabled: 1
-    path: Assets/Portal/Scenes/SelectPath.unity
-    guid: f31d907b328780a41844fee9d54b0ebe
-  - enabled: 1
-    path: Assets/Portal/Scenes/Location.unity
-    guid: 42f6aa7ce7a604f16ade319663f46ceb
   m_configObjects: {}

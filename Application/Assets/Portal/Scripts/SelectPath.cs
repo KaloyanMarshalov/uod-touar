@@ -13,7 +13,7 @@ public class SelectPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnFrames();
     }
 
     // Update is called once per frame
@@ -32,10 +32,6 @@ public class SelectPath : MonoBehaviour
         {
             string pathName = hitObject.transform.Find("Text").GetComponent<TextMesh>().text;
             GameObject.Find("FrameContainer").Destroy();
-            GameObject.Find("SelectedMessage").SetActive(true);
-            GameObject.Find("SelectedMessage").GetComponent<Text>().text = pathName + " Selected!";
-            //Hide the button -> make it a permanent decision
-            GameObject.Find("PathsButton").SetActive(false);
             PlayerPrefs.SetString("path", pathName);
             SceneManager.LoadScene("Location");
         }
@@ -45,34 +41,22 @@ public class SelectPath : MonoBehaviour
     {
         int numberOfObjects = 5;
         float radius = 8f;
-        GameObject button = GameObject.Find(EventSystem.current.currentSelectedGameObject.name);
+        GameObject frameContainer = new GameObject("FrameContainer");
 
-        GameObject container = GameObject.Find("FrameContainer");
-        if (container)
+        for (int i = 0; i < numberOfObjects; i++)
         {
-            Object.Destroy(container);
-            button.GetComponentInChildren<Text>().text = "Show Paths";
-        }
-        else 
-        {
-            GameObject frameContainer = new GameObject("FrameContainer");
-            button.GetComponentInChildren<Text>().text = "Hide Paths";
+            float angle = i * Mathf.PI * 2 / numberOfObjects;
+            float x = Mathf.Cos(angle) * radius;
+            float z = Mathf.Sin(angle) * radius;
+            Vector3 pos = ARCamera.transform.position + new Vector3(x, 0, z);
+            float angleDegrees = -angle * Mathf.Rad2Deg - 90;
+            Quaternion rot = Quaternion.Euler(0, angleDegrees, 0);
+            GameObject frame = Instantiate(PictureFrame, pos, rot) as GameObject;
+            frame.transform.parent = frameContainer.transform;
 
-            for (int i = 0; i < numberOfObjects; i++)
-            {
-                float angle = i * Mathf.PI * 2 / numberOfObjects;
-                float x = Mathf.Cos(angle) * radius;
-                float z = Mathf.Sin(angle) * radius;
-                Vector3 pos = ARCamera.transform.position + new Vector3(x, 0, z);
-                float angleDegrees = -angle * Mathf.Rad2Deg - 90;
-                Quaternion rot = Quaternion.Euler(0, angleDegrees, 0);
-                GameObject frame = Instantiate(PictureFrame, pos, rot) as GameObject;
-                frame.transform.parent = frameContainer.transform;
-
-                //Change the text above the frame
-                frame.transform.Find("Text").GetComponent<TextMesh>().text = "Path " + i;
-                //TODO: Change shader image
-            }
+            //Change the text above the frame
+            frame.transform.Find("Text").GetComponent<TextMesh>().text = "Path " + i;
+            //TODO: Change shader image
         }
     }
 }

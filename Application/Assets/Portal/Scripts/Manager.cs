@@ -17,13 +17,10 @@ public class Manager : MonoBehaviour
     {
         SceneManager.LoadScene("Location");
         arButtons = GameObject.FindGameObjectsWithTag("ExtraARButtons");
-
-        foreach (GameObject button in arButtons)
-        {
-            button.SetActive(false);
-        }
+        changeARButtonsState(true);
     }
 
+    //Switch between Camera and map scene
     public void switchScenes()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -41,14 +38,20 @@ public class Manager : MonoBehaviour
         }
     }
 
-
-    public void changeARButtonsState()
+    //Show or hide the extra AR UI buttons
+    public void changeARButtonsState(bool turnButtonsOff)
     {
-        bool state = !arButtons[0].activeSelf;
+        bool state = turnButtonsOff ? false : !arButtons[0].activeSelf;
 
         foreach(GameObject button in arButtons)
         {
             button.SetActive(state);
         }
+    }
+
+    public void loadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        changeARButtonsState(true);
     }
 }
