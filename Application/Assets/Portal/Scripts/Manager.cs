@@ -17,8 +17,7 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene("Location");
     }
 
-
-    public void SwitchScenes()
+    public void switchScenes()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         GameObject buttonImage = GameObject.Find("UI Button Image");
@@ -27,7 +26,8 @@ public class Manager : MonoBehaviour
         {
             SceneManager.LoadScene("Location");
             EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<Image>()[1].sprite = _cameraImage;
-        } else
+        }
+        else
         {
             SceneManager.LoadScene("SelectPath");
             EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<Image>()[1].sprite = _mapImage;
