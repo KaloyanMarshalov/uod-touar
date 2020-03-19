@@ -56,8 +56,8 @@ public class OffscreenIndicator : MonoBehaviour
         this.player = player;
         this.unRegister = unRegister;
 
-
-        StartCoroutine(RotateToTheTarget());
+/*
+        StartCoroutine(RotateToTheTarget());*/
     }
 
     IEnumerator RotateToTheTarget()
