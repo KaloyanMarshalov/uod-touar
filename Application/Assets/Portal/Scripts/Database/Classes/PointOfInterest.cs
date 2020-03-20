@@ -8,9 +8,9 @@ public class PointOfInterest
     public string Name { get; set; }
     public string Description { get; set; }
     [NotNull]
-    public int Latitude { get; set; }
+    public float Latitude { get; set; }
     [NotNull]
-    public int Longitude { get; set; }
+    public float Longitude { get; set; }
     [NotNull]
     public bool Visited { get; set; }
 }
