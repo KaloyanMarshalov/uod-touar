@@ -110,4 +110,6 @@ public class DataService  {
 	{
 		return _connection.Table<PointOfInterest>();
 	}
+
+	
 }

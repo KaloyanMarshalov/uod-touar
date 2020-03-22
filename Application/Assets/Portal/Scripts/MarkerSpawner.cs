@@ -47,6 +47,7 @@ public class MarkerSpawner : MonoBehaviour
 			var instance = Instantiate(_markerPrefab, _markerHolder);
 			instance.transform.localPosition = _map.GeoToWorldPosition(convertedLocationString, true);
 			instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+			instance.name = pointOfInterest.Name;
 			_spawnedObjects.Add(instance);
 			locations.Add(convertedLocationString);
 		}
@@ -64,25 +65,5 @@ public class MarkerSpawner : MonoBehaviour
 			spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
 			spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 		}
-	}
-
-	private string[] LoadCoordinateFromXMLFile(string filename)
-	{
-		List<string> coordinates = new List<string>();
-
-		TextAsset textAsset = (TextAsset)Resources.Load(filename);
-		XmlDocument xmldoc = new XmlDocument();
-		xmldoc.LoadXml(textAsset.text);
-
-		XmlNodeList elements = xmldoc.GetElementsByTagName("coordinates");
-		for(int i = 0; i < elements.Count; i++)
-		{
-			string[] values = elements[i].InnerXml.Trim().Split(',');
-			//For some reason the parsers takes Long, Lat coordinates, so the GMAPS output needs to be flipped
-			string latLong = values[1] + ", " + values[0];
-			coordinates.Add(latLong);
-		}
-
-		return coordinates.ToArray();
 	}
 }

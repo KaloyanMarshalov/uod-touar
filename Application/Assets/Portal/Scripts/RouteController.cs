@@ -14,6 +14,7 @@ using Mapbox.Utils.JsonConverters;
 
 public class RouteController : MonoBehaviour
 {
+	private DataService dataService = new DataService("uod-toar.db");
 	[SerializeField]
 	AbstractMap _map;
 
@@ -21,8 +22,6 @@ public class RouteController : MonoBehaviour
 	MeshModifier[] MeshModifiers;
 	[SerializeField]
 	Material _material;
-	[SerializeField]
-	public string _filePath;
 
 	[SerializeField]
 	Transform[] _waypoints;
@@ -42,14 +41,14 @@ public class RouteController : MonoBehaviour
 
 	protected virtual void Awake()
 	{
-		_directions = MapboxAccess.Instance.Directions;
-		_map.OnInitialized += Query;
-		_filePath = "Routes/" + PlayerPrefs.GetString("path");
-		/*_map.OnUpdated += Query;*/
+		//_directions = MapboxAccess.Instance.Directions;
+		//_map.OnInitialized += Query;
+		_map.OnUpdated += Query;
 	}
 
 	public void Start()
 	{
+		PlayerPrefs.SetString("path", "Life Sciences");
 		//Fill out waypoints from the waypoints generator
 		List<Transform> markers = new List<Transform>();
 		for (int i = 0; i < _waypointsContainer.childCount; i++)
@@ -87,9 +86,7 @@ public class RouteController : MonoBehaviour
 		{
 			wp[i] = _waypoints[i].GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale);
 		}
-		var _directionResource = new DirectionResource(wp, RoutingProfile.Walking);
-		_directionResource.Steps = false;	//changed
-		_directions.Query(_directionResource, HandleDirectionsResponse);
+		DrawPath();
 	}
 
 	public IEnumerator QueryTimer()
@@ -114,12 +111,20 @@ public class RouteController : MonoBehaviour
 		}
 	}
 
-	void HandleDirectionsResponse(DirectionsResponse response)
+	void DrawPath()
 	{
-		TextAsset textAsset = (TextAsset)Resources.Load(_filePath);
-		string json = textAsset.text;
+		string json = "";
+		if(PlayerPrefs.GetString("path").Length > 0)
+		{
+			Route route = dataService.getRoute(PlayerPrefs.GetString("path"));
+			json = route.MapboxRouteJSON;
+		} 
+		else
+		{
+			return;
+		}
 
-		response = JsonConvert.DeserializeObject<DirectionsResponse>(json, JsonConverters.Converters);
+		var response = JsonConvert.DeserializeObject<DirectionsResponse>(json, JsonConverters.Converters);
 
 		if (response == null || null == response.Routes || response.Routes.Count < 1)
 		{
@@ -177,7 +182,6 @@ public class RouteController : MonoBehaviour
 	//OnClickEvent
 	public void ChangePath(string pathName)
 	{
-		_filePath = pathName;
 		_recalculateNext = true;
 	}
 }

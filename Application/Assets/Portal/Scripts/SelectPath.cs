@@ -10,13 +10,11 @@ public class SelectPath : MonoBehaviour
     public Camera ARCamera;
     public GameObject PictureFrame;
 
-    // Start is called before the first frame update
     void Start()
     {
         SpawnFrames();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Touch touch;
