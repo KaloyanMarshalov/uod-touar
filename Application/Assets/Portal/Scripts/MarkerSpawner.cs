@@ -8,6 +8,7 @@ using System.Xml;
 
 public class MarkerSpawner : MonoBehaviour
 {
+	private DataService dataService = new DataService("uod-toar.db");
 	public string _fileName;
 
 	[SerializeField]
@@ -15,7 +16,6 @@ public class MarkerSpawner : MonoBehaviour
 
 	[SerializeField]
 	[Geocode]
-	string[] _locationStrings;
 	Vector2d[] _locations;
 
 	[SerializeField]
@@ -32,25 +32,26 @@ public class MarkerSpawner : MonoBehaviour
 
 	List<GameObject> _spawnedObjects;
 
+	//Spawn all locations from the DB
 	void Start()
 	{
-		_locationStrings = LoadCoordinateFromXMLFile(_fileName);
-
-		_locations = new Vector2d[_locationStrings.Length];
+		var pointsOfInterest = dataService.getPointsOfInterest();
 		_spawnedObjects = new List<GameObject>();
-		//Spawn markers on the canvas
-		for (int i = 0; i < _locationStrings.Length; i++)
+		List<Vector2d> locations = new List<Vector2d>();
+
+		foreach (PointOfInterest pointOfInterest in pointsOfInterest)
 		{
-			var locationString = _locationStrings[i];
-			_locations[i] = Conversions.StringToLatLon(locationString);
+			string locationString = pointOfInterest.Latitude + ", " + pointOfInterest.Longitude;
+			Vector2d convertedLocationString = Conversions.StringToLatLon(locationString);
+
 			var instance = Instantiate(_markerPrefab, _markerHolder);
-			instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
+			instance.transform.localPosition = _map.GeoToWorldPosition(convertedLocationString, true);
 			instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
 			_spawnedObjects.Add(instance);
+			locations.Add(convertedLocationString);
 		}
 
-		//Start path finding
-		_directionObject.SetActive(true);
+		_locations = locations.ToArray();
 	}
 
 	private void Update()

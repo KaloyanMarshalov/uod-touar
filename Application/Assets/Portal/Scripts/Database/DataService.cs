@@ -100,4 +100,14 @@ public class DataService  {
 		}
 		_connection.InsertAll(pois.ToArray());
 	}
+
+	public Route getRoute(string routeName)
+	{
+		return _connection.Table<Route>().Where(route => route.Name.Contains(routeName)).FirstOrDefault();
+	}
+
+	public IEnumerable<PointOfInterest> getPointsOfInterest()
+	{
+		return _connection.Table<PointOfInterest>();
+	}
 }
