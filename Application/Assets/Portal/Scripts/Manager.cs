@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Location");
         arButtons = GameObject.FindGameObjectsWithTag("ExtraARButtons");
         changeARButtonsState(true);

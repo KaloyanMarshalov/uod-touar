@@ -30,7 +30,11 @@ public class SelectPath : MonoBehaviour
         {
             string pathName = hitObject.transform.Find("Text").GetComponent<TextMesh>().text;
             GameObject.Find("FrameContainer").Destroy();
-            PlayerPrefs.SetString("path", pathName);
+
+            //HARDCODING PATH
+
+
+            PlayerPrefs.SetString("path", "Life Sciences");
             SceneManager.LoadScene("Location");
         }
     }

@@ -35,7 +35,18 @@ public class MarkerSpawner : MonoBehaviour
 	//Spawn all locations from the DB
 	void Start()
 	{
-		var pointsOfInterest = dataService.getPointsOfInterest();
+		IEnumerable<PointOfInterest> pointsOfInterest = null;
+		string path = PlayerPrefs.GetString("path");
+
+		if (path.Length > 0)
+		{
+			pointsOfInterest = dataService.getPointsOfInterestForRoute(path);
+		} 
+		else
+		{
+			pointsOfInterest = dataService.getPointsOfInterest();
+
+		}
 		_spawnedObjects = new List<GameObject>();
 		List<Vector2d> locations = new List<Vector2d>();
 

@@ -111,5 +111,20 @@ public class DataService  {
 		return _connection.Table<PointOfInterest>();
 	}
 
-	
+	//Should be using a JOIN, but couldn't figure out how to use it with the SQLite library
+	public IEnumerable<PointOfInterest> getPointsOfInterestForRoute(string routeName)
+	{
+		int routeId = getRoute(routeName).Id;
+		IEnumerable<POI_Route> poi_routes = _connection.Table<POI_Route>()
+			.Where(poi_route => poi_route.RouteId.Equals(routeId));
+
+		List<PointOfInterest> POIs = new List<PointOfInterest>();
+		foreach(POI_Route poi_route in poi_routes)
+		{
+			PointOfInterest pointOfInterest = _connection.Table<PointOfInterest>().Where(poi => poi.Id.Equals(poi_route.PointOfInterestId)).First();
+			POIs.Add(pointOfInterest);
+		}
+
+		return POIs;
+	}
 }

@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fileName: campusBuildings
   _map: {fileID: 843921213}
-  _locationStrings: []
+  _locations: []
   _spawnScale: 200
   _markerPrefab: {fileID: 1196953851599986, guid: 5bcb8afe019d04efc83e86f56b198ce0,
     type: 3}
@@ -1712,7 +1712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1778772891
 Transform:
   m_ObjectHideFlags: 0
@@ -1743,7 +1743,6 @@ MonoBehaviour:
   MeshModifiers:
   - {fileID: 11400000, guid: 72a54fd58e79618408c60d91df61d553, type: 2}
   _material: {fileID: 2100000, guid: ef6c956ca085647fba4624a08c344419, type: 2}
-  _filePath: test-route
   _waypoints: []
   _waypointsContainer: {fileID: 766068249}
   UpdateFrequency: 5

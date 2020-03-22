@@ -15,6 +15,7 @@ using Mapbox.Utils.JsonConverters;
 public class RouteController : MonoBehaviour
 {
 	private DataService dataService = new DataService("uod-toar.db");
+
 	[SerializeField]
 	AbstractMap _map;
 
@@ -48,7 +49,6 @@ public class RouteController : MonoBehaviour
 
 	public void Start()
 	{
-		PlayerPrefs.SetString("path", "Life Sciences");
 		//Fill out waypoints from the waypoints generator
 		List<Transform> markers = new List<Transform>();
 		for (int i = 0; i < _waypointsContainer.childCount; i++)
@@ -86,7 +86,13 @@ public class RouteController : MonoBehaviour
 		{
 			wp[i] = _waypoints[i].GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale);
 		}
-		DrawPath();
+		
+		string pathName = PlayerPrefs.GetString("path");
+
+		if (PlayerPrefs.GetString("path").Length > 0)
+		{
+			DrawPath(pathName);
+		}
 	}
 
 	public IEnumerator QueryTimer()
@@ -111,18 +117,11 @@ public class RouteController : MonoBehaviour
 		}
 	}
 
-	void DrawPath()
+	void DrawPath(string pathName)
 	{
 		string json = "";
-		if(PlayerPrefs.GetString("path").Length > 0)
-		{
-			Route route = dataService.getRoute(PlayerPrefs.GetString("path"));
-			json = route.MapboxRouteJSON;
-		} 
-		else
-		{
-			return;
-		}
+		Route route = dataService.getRoute(pathName);
+		json = route.MapboxRouteJSON;
 
 		var response = JsonConvert.DeserializeObject<DirectionsResponse>(json, JsonConverters.Converters);
 
@@ -177,11 +176,5 @@ public class RouteController : MonoBehaviour
 		mesh.RecalculateNormals();
 		_directionsGO.AddComponent<MeshRenderer>().material = _material;
 		return _directionsGO;
-	}
-
-	//OnClickEvent
-	public void ChangePath(string pathName)
-	{
-		_recalculateNext = true;
 	}
 }
