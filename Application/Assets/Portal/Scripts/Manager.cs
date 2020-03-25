@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿using Mapbox.Examples;
+using Mapbox.Unity.Location;
+using Mapbox.Utils;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +16,7 @@ public class Manager : MonoBehaviour
     [SerializeField]
     Sprite _mapImage;
     private GameObject[] arButtons;
+    private Vector2d cachedLatLong;
 
     private void Awake()
     {
@@ -23,12 +28,33 @@ public class Manager : MonoBehaviour
         GameObject.Find("ARScenesButton").SetActive(false);
     }
 
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "Location")
+        {
+            var locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+     
+            if (!cachedLatLong.Equals(locationProvider.CurrentLocation.LatitudeLongitude))
+            {
+                cachedLatLong = locationProvider.CurrentLocation.LatitudeLongitude;
+                checkIfNearLocation(cachedLatLong);
+            }
+        }
+    }
+
+    private bool checkIfNearLocation(Vector2d locationLatLong)
+    {
+        Vector2d[] locationsOnMap = GameObject.Find("MarkerHolder").GetComponent<MarkerSpawner>()._locations;
+        int distance = (int) DistanceCalculator.calculateDistance(locationLatLong, locationsOnMap[9]);
+        print(distance + " meters");
+        return false;
+    }
+
     //Switch between Camera and map scene
     public void switchScenes()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         GameObject buttonImage = GameObject.Find("UI Button Image");
-        print(sceneName);
         if(sceneName == "SelectPath")
         {
             SceneManager.LoadScene("Location");

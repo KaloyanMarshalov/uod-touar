@@ -16,7 +16,7 @@ public class MarkerSpawner : MonoBehaviour
 
 	[SerializeField]
 	[Geocode]
-	Vector2d[] _locations;
+	public Vector2d[] _locations;
 
 	[SerializeField]
 	float _spawnScale = 200f;
