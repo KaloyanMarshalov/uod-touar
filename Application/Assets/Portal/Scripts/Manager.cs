@@ -11,10 +11,15 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
+    private const int DISTANCE_FROM_TARGET = 30;
+
     [SerializeField]
     Sprite _cameraImage;
     [SerializeField]
     Sprite _mapImage;
+    [SerializeField]
+    GameObject _UITextbox;
+
     private GameObject[] arButtons;
     private Vector2d cachedLatLong;
 
@@ -32,22 +37,38 @@ public class Manager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "Location")
         {
-            var locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
-     
+            ILocationProvider locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+
             if (!cachedLatLong.Equals(locationProvider.CurrentLocation.LatitudeLongitude))
             {
                 cachedLatLong = locationProvider.CurrentLocation.LatitudeLongitude;
-                checkIfNearLocation(cachedLatLong);
+                checkIfNearLocation(cachedLatLong); 
             }
         }
     }
 
-    private bool checkIfNearLocation(Vector2d locationLatLong)
+    private void checkIfNearLocation(Vector2d locationLatLong)
     {
-        Vector2d[] locationsOnMap = GameObject.Find("MarkerHolder").GetComponent<MarkerSpawner>()._locations;
-        int distance = (int) DistanceCalculator.calculateDistance(locationLatLong, locationsOnMap[9]);
-        print(distance + " meters");
-        return false;
+        GameObject markerHolder = GameObject.Find("MarkerHolder");
+        Vector2d[] locationsOnMap = markerHolder.GetComponent<MarkerSpawner>()._locations;
+
+        for(int i = 0; i < locationsOnMap.Length; i++)
+        {
+            int distance = (int)DistanceCalculator.calculateDistance(locationLatLong, locationsOnMap[i]);
+
+            if (distance < DISTANCE_FROM_TARGET)
+            {
+                //TODO: activate buttons and path specific stuff.
+
+                string message = "You have arrived at: " + markerHolder.transform.GetChild(i).name + "!";
+                _UITextbox.GetComponent<Text>().text = message;
+                return;
+            }
+            else
+            {
+                _UITextbox.GetComponent<Text>().text = "Please make your way to one of the locations.";
+            }
+        }
     }
 
     //Switch between Camera and map scene
