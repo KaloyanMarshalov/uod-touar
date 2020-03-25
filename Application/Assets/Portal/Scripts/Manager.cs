@@ -19,6 +19,8 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene("Location");
         arButtons = GameObject.FindGameObjectsWithTag("ExtraARButtons");
         changeARButtonsState(true);
+        GameObject.Find("SelectPathButton").SetActive(false);
+        GameObject.Find("ARScenesButton").SetActive(false);
     }
 
     //Switch between Camera and map scene
