@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
-    private const int DISTANCE_FROM_TARGET = 30;    //Change to 20 when finished
+    private const int DISTANCE_FROM_TARGET = 20;    //Change to 20 when finished
 
     [SerializeField]
     Sprite _cameraImage;
@@ -24,8 +24,8 @@ public class Manager : MonoBehaviour
     private GameObject[] pathAndARSceneButtons;
     private Vector2d cachedLatLong;
     private DataService dataService;
-    public PointOfInterest currentPointOfInterest;
-    public Route currentRoute;
+    public PointOfInterest currentPointOfInterest = null;
+    public Route currentRoute = null;
 
     private void Awake()
     {
@@ -72,7 +72,8 @@ public class Manager : MonoBehaviour
                 changeButtonsState(false, pathAndARSceneButtons);
 
                 //Hide the Routes button since we are on a path and not on a hub
-                if (currentRoute != null || connectedRoutes.Count > 1)
+                print(currentRoute == null);
+                if (currentRoute != null && connectedRoutes.Count <= 1)
                 {
                     GameObject.Find("SelectPathButton").SetActive(false);
                 }
