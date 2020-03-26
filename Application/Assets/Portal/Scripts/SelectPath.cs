@@ -31,8 +31,6 @@ public class SelectPath : MonoBehaviour
         {
             string pathName = hitObject.transform.Find("Text").GetComponent<TextMesh>().text;
             GameObject.Find("FrameContainer").Destroy();
-
-            //HARDCODING PATH
             GameObject.Find("Manager").GetComponent<Manager>().currentRoute = dataService.getRoute(pathName);
             SceneManager.LoadScene("Location");
         }
@@ -60,7 +58,12 @@ public class SelectPath : MonoBehaviour
 
             //Change the text above the frame
             frame.transform.Find("Text").GetComponent<TextMesh>().text = routes[i].Name;
-            //TODO: Change shader image
+
+            var materials = frame.transform.Find("PhotoFrame").GetComponent<MeshRenderer>().materials;
+            Color frameColor;
+            ColorUtility.TryParseHtmlString(routes[i].ColourHex, out frameColor);
+            materials[0].color = frameColor;
+            frame.transform.Find("Image").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Routes/" + routes[i].Name);
         }
     }
 }
