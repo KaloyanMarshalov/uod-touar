@@ -86,12 +86,12 @@ public class RouteController : MonoBehaviour
 		{
 			wp[i] = _waypoints[i].GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale);
 		}
-		
-		string pathName = PlayerPrefs.GetString("path");
 
-		if (PlayerPrefs.GetString("path").Length > 0)
+		Route currentRoute = GameObject.Find("Manager").GetComponent<Manager>().currentRoute;
+
+		if (currentRoute != null)
 		{
-			DrawPath(pathName);
+			DrawPath(currentRoute);
 		}
 	}
 
@@ -117,11 +117,9 @@ public class RouteController : MonoBehaviour
 		}
 	}
 
-	void DrawPath(string pathName)
+	void DrawPath(Route route)
 	{
-		string json = "";
-		Route route = dataService.getRoute(pathName);
-		json = route.MapboxRouteJSON;
+		string json = route.MapboxRouteJSON;
 
 		var response = JsonConvert.DeserializeObject<DirectionsResponse>(json, JsonConverters.Converters);
 

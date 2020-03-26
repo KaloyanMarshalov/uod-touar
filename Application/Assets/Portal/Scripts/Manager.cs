@@ -23,6 +23,9 @@ public class Manager : MonoBehaviour
     private GameObject[] arButtons;
     private GameObject[] pathAndARSceneButtons;
     private Vector2d cachedLatLong;
+    private DataService dataService;
+    public PointOfInterest currentPointOfInterest;
+    public Route currentRoute;
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class Manager : MonoBehaviour
         pathAndARSceneButtons = GameObject.FindGameObjectsWithTag("PathAndARSceneButtons");
         changeButtonsState(true, arButtons);
         changeButtonsState(true, pathAndARSceneButtons);
+        dataService = new DataService("uod-toar.db");
     }
 
     void Update()
@@ -39,10 +43,12 @@ public class Manager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Location")
         {
             ILocationProvider locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+            Vector2d currentLatLong = locationProvider.CurrentLocation.LatitudeLongitude;
 
-            if (!cachedLatLong.Equals(locationProvider.CurrentLocation.LatitudeLongitude))
+            if ((float)cachedLatLong.x != (float)currentLatLong.x || 
+                (float)cachedLatLong.y != (float)currentLatLong.y)
             {
-                cachedLatLong = locationProvider.CurrentLocation.LatitudeLongitude;
+                cachedLatLong = currentLatLong;
                 checkIfNearLocation(cachedLatLong); 
             }
         }
@@ -59,9 +65,19 @@ public class Manager : MonoBehaviour
 
             if (distance < DISTANCE_FROM_TARGET)
             {
-                //TODO: activate buttons and path specific stuff.
+                currentPointOfInterest = dataService.getPointOfInterest(markerHolder.transform.GetChild(i).name);
+
+                //56.4577859982524, -2.97879196121313
+                var connectedRoutes = dataService.getRoutesForPointOfInterest(currentPointOfInterest);
                 changeButtonsState(false, pathAndARSceneButtons);
-                string message = "You have arrived at: " + markerHolder.transform.GetChild(i).name + "!";
+
+                //Hide the Routes button since we are on a path and not on a hub
+                if (currentRoute != null || connectedRoutes.Count > 1)
+                {
+                    GameObject.Find("SelectPathButton").SetActive(false);
+                }
+
+                string message = "You have arrived at: " + currentPointOfInterest.Name + "!";
                 _UITextbox.GetComponent<Text>().text = message;
                 Handheld.Vibrate();
                 return;

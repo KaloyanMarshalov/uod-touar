@@ -36,11 +36,11 @@ public class MarkerSpawner : MonoBehaviour
 	void Start()
 	{
 		IEnumerable<PointOfInterest> pointsOfInterest = null;
-		string path = PlayerPrefs.GetString("path");
+		Route currentRoute = GameObject.Find("Manager").GetComponent<Manager>().currentRoute;
 
-		if (path.Length > 0)
+		if (currentRoute != null)
 		{
-			pointsOfInterest = dataService.getPointsOfInterestForRoute(path);
+			pointsOfInterest = dataService.getPointsOfInterestForRoute(currentRoute);
 		} 
 		else
 		{

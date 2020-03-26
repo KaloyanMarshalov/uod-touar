@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SelectPath : MonoBehaviour
 {
+    private DataService dataService = new DataService("uod-toar.db");
     public Camera ARCamera;
     public GameObject PictureFrame;
 
@@ -32,16 +33,17 @@ public class SelectPath : MonoBehaviour
             GameObject.Find("FrameContainer").Destroy();
 
             //HARDCODING PATH
-
-
-            PlayerPrefs.SetString("path", "Life Sciences");
+            GameObject.Find("Manager").GetComponent<Manager>().currentRoute = dataService.getRoute(pathName);
             SceneManager.LoadScene("Location");
         }
     }
 
     public void SpawnFrames()
     {
-        int numberOfObjects = 5;
+        PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
+        Route[] routes = dataService.getRoutesForPointOfInterest(poi).ToArray();
+
+        int numberOfObjects = routes.Length;
         float radius = 8f;
         GameObject frameContainer = new GameObject("FrameContainer");
 
@@ -57,7 +59,7 @@ public class SelectPath : MonoBehaviour
             frame.transform.parent = frameContainer.transform;
 
             //Change the text above the frame
-            frame.transform.Find("Text").GetComponent<TextMesh>().text = "Path " + i;
+            frame.transform.Find("Text").GetComponent<TextMesh>().text = routes[i].Name;
             //TODO: Change shader image
         }
     }

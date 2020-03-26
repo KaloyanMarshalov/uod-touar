@@ -106,15 +106,20 @@ public class DataService  {
 		return _connection.Table<Route>().Where(route => route.Name.Contains(routeName)).FirstOrDefault();
 	}
 
+	public PointOfInterest getPointOfInterest(string pointOfInterestName)
+	{
+		return _connection.Table<PointOfInterest>().Where(poi => poi.Name.Contains(pointOfInterestName)).FirstOrDefault();
+	}
+
 	public IEnumerable<PointOfInterest> getPointsOfInterest()
 	{
 		return _connection.Table<PointOfInterest>();
 	}
 
 	//Should be using a JOIN, but couldn't figure out how to use it with the SQLite library
-	public IEnumerable<PointOfInterest> getPointsOfInterestForRoute(string routeName)
+	public IEnumerable<PointOfInterest> getPointsOfInterestForRoute(Route route)
 	{
-		int routeId = getRoute(routeName).Id;
+		int routeId = route.Id;
 		IEnumerable<POI_Route> poi_routes = _connection.Table<POI_Route>()
 			.Where(poi_route => poi_route.RouteId.Equals(routeId));
 
@@ -126,5 +131,21 @@ public class DataService  {
 		}
 
 		return POIs;
+	}
+
+	public List<Route> getRoutesForPointOfInterest(PointOfInterest poi)
+	{
+		IEnumerable<POI_Route> poi_routes = _connection.Table<POI_Route>()
+			.Where(poi_route => poi_route.PointOfInterestId.Equals(poi.Id));
+
+		List<Route> routes = new List<Route>();
+		foreach (POI_Route poi_route in poi_routes)
+		{
+			Route route = _connection.Table<Route>()
+				.Where(x => x.Id.Equals(poi_route.RouteId)).First();
+			routes.Add(route);
+		}
+
+		return routes;
 	}
 }
