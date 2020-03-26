@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraImage: {fileID: 21300000, guid: 81e324792d185a2439483c6719cc72ea, type: 3}
   _mapImage: {fileID: 21300000, guid: 63887bca38604f84ab99e22b1f4633ad, type: 3}
+  _UITextbox: {fileID: 893953612}
 --- !u!4 &361081725
 Transform:
   m_ObjectHideFlags: 0
@@ -319,6 +320,7 @@ GameObject:
   - component: {fileID: 374943318}
   - component: {fileID: 374943317}
   - component: {fileID: 374943321}
+  - component: {fileID: 374943322}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -422,6 +424,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569a3c2ac522da64791bb14ec4f5770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &374943322
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374943316}
+  m_CullTransparentMesh: 0
 --- !u!1 &375264083
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Please make your way to one of the locations
+  m_Text: Please make your way to one of the locations.
 --- !u!222 &893953615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -652,6 +662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990018, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_TagString
+      value: PathAndARSceneButtons
       objectReference: {fileID: 0}
     - target: {fileID: 6912820710286990019, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
@@ -1666,6 +1681,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990018, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_TagString
+      value: PathAndARSceneButtons
+      objectReference: {fileID: 0}
     - target: {fileID: 6912820710286990019, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1779,7 +1799,7 @@ PrefabInstance:
     - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
