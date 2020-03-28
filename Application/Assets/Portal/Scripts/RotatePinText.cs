@@ -9,7 +9,15 @@ public class RotatePinText : MonoBehaviour
 
     void OnMouseDown()
     {
-        text.transform.localRotation = Camera.main.transform.localRotation;
-        text.GetComponent<TextMesh>().text = gameObject.transform.parent.name;
+        TextMesh textMesh = text.GetComponent<TextMesh>();
+        if (textMesh.text == "")
+        {
+            text.transform.localRotation = Camera.main.transform.localRotation;
+            textMesh.text = gameObject.transform.parent.name;
+        }
+        else
+        {
+            textMesh.text = "";
+        }
     }
 }
