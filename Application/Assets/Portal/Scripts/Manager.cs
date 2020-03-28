@@ -95,14 +95,14 @@ public class Manager : MonoBehaviour
     {
         string sceneName = SceneManager.GetActiveScene().name;
         GameObject buttonImage = GameObject.Find("UI Button Image");
-        if(sceneName == "SelectPath")
+        if(sceneName == "SelectPath" || sceneName == "PlainCamera")
         {
             SceneManager.LoadScene("Location");
             GameObject.Find("ScenesButton").GetComponentsInChildren<Image>()[1].sprite = _cameraImage;
         }
         else
         {
-            SceneManager.LoadScene("SelectPath");
+            SceneManager.LoadScene("PlainCamera");
             GameObject.Find("ScenesButton").GetComponentsInChildren<Image>()[1].sprite = _mapImage;
         }
     }
