@@ -143,10 +143,10 @@ public class RouteController : MonoBehaviour
 			mod.Run(feat, meshData, _map.WorldRelativeScale);
 		}
 
-		CreateGameObject(meshData);
+		CreateGameObject(meshData, route);
 	}
 
-	GameObject CreateGameObject(MeshData data)
+	GameObject CreateGameObject(MeshData data, Route route)
 	{
 		if (_directionsGO != null)
 		{
@@ -172,6 +172,9 @@ public class RouteController : MonoBehaviour
 		}
 
 		mesh.RecalculateNormals();
+		Color routeColour;
+		ColorUtility.TryParseHtmlString(route.ColourHex, out routeColour);
+		_material.color = routeColour;
 		_directionsGO.AddComponent<MeshRenderer>().material = _material;
 		return _directionsGO;
 	}

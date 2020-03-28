@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
-    private const int DISTANCE_FROM_TARGET = 20;    //Change to 20 when finished
+    private const int DISTANCE_FROM_TARGET = 30;    //Change to 20 when finished
 
     [SerializeField]
     Sprite _cameraImage;
