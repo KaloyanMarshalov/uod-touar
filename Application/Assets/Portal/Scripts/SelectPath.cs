@@ -31,8 +31,9 @@ public class SelectPath : MonoBehaviour
         {
             string pathName = hitObject.transform.Find("Text").GetComponent<TextMesh>().text;
             GameObject.Find("FrameContainer").Destroy();
-            GameObject.Find("Manager").GetComponent<Manager>().currentRoute = dataService.getRoute(pathName);
-            SceneManager.LoadScene("Location");
+            Manager managerScript = GameObject.Find("Manager").GetComponent<Manager>();
+            managerScript.currentRoute = dataService.getRoute(pathName);
+            managerScript.switchScenes();
         }
     }
 

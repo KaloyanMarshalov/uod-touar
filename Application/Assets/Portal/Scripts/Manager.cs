@@ -72,7 +72,6 @@ public class Manager : MonoBehaviour
                 changeButtonsState(false, pathAndARSceneButtons);
 
                 //Hide the Routes button since we are on a path and not on a hub
-                print(currentRoute == null);
                 if (currentRoute != null && connectedRoutes.Count <= 1)
                 {
                     GameObject.Find("SelectPathButton").SetActive(false);
@@ -99,12 +98,12 @@ public class Manager : MonoBehaviour
         if(sceneName == "SelectPath")
         {
             SceneManager.LoadScene("Location");
-            EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<Image>()[1].sprite = _cameraImage;
+            GameObject.Find("ScenesButton").GetComponentsInChildren<Image>()[1].sprite = _cameraImage;
         }
         else
         {
             SceneManager.LoadScene("SelectPath");
-            EventSystem.current.currentSelectedGameObject.GetComponentsInChildren<Image>()[1].sprite = _mapImage;
+            GameObject.Find("ScenesButton").GetComponentsInChildren<Image>()[1].sprite = _mapImage;
         }
     }
 
