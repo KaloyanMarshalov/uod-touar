@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore;
 using GoogleARCore.Examples.Common;
+using UnityEngine.SceneManagement;
 
 public class ARController : MonoBehaviour
 {
@@ -15,7 +16,12 @@ public class ARController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.GetActiveScene().name == "360Image")
+        {
+
+            PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
+            Door.transform.Find("360Image").GetComponent<MeshRenderer>().materials[0].mainTexture = Resources.Load<Texture>("PointsOfInterest/Photo Spheres/" + poi.Name);
+        }
     }
 
     // Update is called once per frame
