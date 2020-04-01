@@ -12,15 +12,19 @@ public class ARController : MonoBehaviour
     public GameObject GridPrefab;
     public GameObject Door;
     public GameObject ARCamera;
+    public GameObject Sponza;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "360Image")
+        PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
+        if (SceneManager.GetActiveScene().name == "360Image")
         {
-
-            PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
             Door.transform.Find("360Image").GetComponent<MeshRenderer>().materials[0].mainTexture = Resources.Load<Texture>("PointsOfInterest/Photo Spheres/" + poi.Name);
+        }
+        else
+        {
+            Instantiate(Resources.Load("Prefabs/Sponza Prefabs/" + poi.Name), Sponza.transform);
         }
     }
 

@@ -983,6 +983,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6912820710286990021, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
       propertyPath: m_Enabled
@@ -1814,7 +1819,7 @@ PrefabInstance:
     - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeARButtonsState
+      value: toggleARButtons
       objectReference: {fileID: 0}
     - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}

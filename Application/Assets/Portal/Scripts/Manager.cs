@@ -33,8 +33,8 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene("Location");
         arButtons = GameObject.FindGameObjectsWithTag("ExtraARButtons");
         pathAndARSceneButtons = GameObject.FindGameObjectsWithTag("PathAndARSceneButtons");
-        changeButtonsState(true, arButtons);
-        changeButtonsState(true, pathAndARSceneButtons);
+        turnOffButtons(arButtons);
+        turnOffButtons(pathAndARSceneButtons);
         dataService = new DataService("uod-toar.db");
     }
 
@@ -69,7 +69,7 @@ public class Manager : MonoBehaviour
 
                 //56.4577859982524, -2.97879196121313
                 var connectedRoutes = dataService.getRoutesForPointOfInterest(currentPointOfInterest);
-                changeButtonsState(false, pathAndARSceneButtons);
+                turnOnButtons(pathAndARSceneButtons);
 
                 //Hide the Routes button since we are on a path and not on a hub
                 if (currentRoute != null && connectedRoutes.Count <= 1)
@@ -85,7 +85,7 @@ public class Manager : MonoBehaviour
             else
             {
                 _UITextbox.GetComponent<Text>().text = "Please make your way to one of the locations.";
-                changeButtonsState(true, pathAndARSceneButtons);
+                turnOffButtons(pathAndARSceneButtons);
             }
         }
     }
@@ -107,25 +107,52 @@ public class Manager : MonoBehaviour
         }
     }
 
-    //Show or hide the extra AR UI buttons
-    public void changeButtonsState(bool turnButtonsOff, GameObject[] gameObjects)
+    public void toggleARButtons()
     {
-        bool state = turnButtonsOff ? false : !gameObjects[0].activeSelf;
-
-        foreach(GameObject button in gameObjects)
+        if (arButtons[0].activeSelf == true)
         {
-            button.SetActive(state);
+            turnOffButtons(arButtons);
         }
-    }
-
-    public void changeARButtonsState()
-    {
-        changeButtonsState(false, arButtons);
+        else
+        {
+            turnOnButtons(arButtons);
+            //Grey out the AR buttons for which we don't have a scene.
+            foreach (GameObject button in arButtons)
+            {
+                if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal) ||
+                    (button.name.Contains("360") && currentPointOfInterest.Has360))
+                {
+                    button.GetComponent<Button>().interactable = true;
+                    button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(255, 255, 255);
+                }
+                else
+                {
+                    button.GetComponent<Button>().interactable = false;
+                    button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(0, 0, 0);
+                }
+            }
+        }
     }
 
     public void loadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        changeButtonsState(true, arButtons);
+        turnOffButtons(arButtons);
+    }
+
+    private void turnOffButtons(GameObject[] buttons)
+    {
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(false);
+        }
+    }
+
+    private void turnOnButtons(GameObject[] buttons)
+    {
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(true);
+        }
     }
 }

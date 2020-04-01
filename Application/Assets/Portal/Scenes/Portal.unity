@@ -486,6 +486,7 @@ MonoBehaviour:
     type: 3}
   Door: {fileID: 2146640713}
   ARCamera: {fileID: 223974226}
+  Sponza: {fileID: 8296172669432114126}
 --- !u!4 &1114040582
 Transform:
   m_ObjectHideFlags: 0
