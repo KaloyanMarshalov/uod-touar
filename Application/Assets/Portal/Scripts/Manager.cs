@@ -120,7 +120,8 @@ public class Manager : MonoBehaviour
             foreach (GameObject button in arButtons)
             {
                 if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal) ||
-                    (button.name.Contains("360") && currentPointOfInterest.Has360))
+                    (button.name.Contains("360") && currentPointOfInterest.Has360) ||
+                    (button.name.Contains("Pedestal") && currentPointOfInterest.HasPedestal))
                 {
                     button.GetComponent<Button>().interactable = true;
                     button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(255, 255, 255);

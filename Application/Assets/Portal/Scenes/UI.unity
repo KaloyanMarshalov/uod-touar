@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 6912820710286990018, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
       propertyPath: m_Name
-      value: FreeFloatingObjectButton
+      value: PedestalButton
       objectReference: {fileID: 0}
     - target: {fileID: 6912820710286990018, guid: da1454d44f93ae441829e2c084d83d19,
         type: 3}
@@ -252,6 +252,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 361081724}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: loadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912820710286990020, guid: da1454d44f93ae441829e2c084d83d19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pedestal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1454d44f93ae441829e2c084d83d19, type: 3}
