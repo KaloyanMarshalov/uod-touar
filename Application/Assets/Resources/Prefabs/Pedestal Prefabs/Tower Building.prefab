@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1887415465740796308, guid: 9c87ff5697bfcf7478070235ee201de6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815370, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_Mesh
@@ -15,22 +20,57 @@ PrefabInstance:
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_text
-      value: Lorem Ipsum
+      value: "Where the Tower now stands was the site of the four villas originally
+        purchased by University College for \xA335,000 to provide their initial accommodation.
+        A corridor was constructed to link them at the rear, and they provided the
+        original teaching space for most subjects. It was also in one of them that
+        Prof D'Arcy Thompson created a museum for his impressive zoology collection,
+        the remains of which are now housed in a museum in the Carnelley Building.
+        It had always been the intention to knock these down and build something more
+        elaborate, and various schemes were considered, but St Andrews University
+        (who held the purse-strings) were always reluctant to come up with the money.
+        In 1951, however, a Royal Commission was set up under Lord Tedder to look
+        at the increasingly strained relationship between Dundee and St Andrews. The
+        result of Tedder's report was that University College was dissolved and reformed
+        in 1954 as Queen's College. The new Principal at St Andrews, Thomas Malcolm
+        Knox, believed Dundee was just as important as St Andrews, and though he was
+        initially in favour of unity, ultimately became the driving force behind Dundee's
+        bid for independence. It was Knox who suggested the Tower building as a symbol
+        of the strength and modernity of Dundee, and it was he who laid the foundation
+        stone in 1959. The design by Sir Robert Matthew was certainly modern (the
+        first tower block in Dundee) but made links with the past in its materials
+        - not concrete but traditional stone and wood. The building was opened in
+        1961 by the Queen Mother, and the extension was completed seven years later."
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 11
+      value: 1610
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 271
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 2
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887415466573815373, guid: 9c87ff5697bfcf7478070235ee201de6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.85
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466872435305, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
@@ -90,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 1887415466872435306, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_Name
-      value: Duncan of Jordanstone College of Art & Design
+      value: Tower Building
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466872435306, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}

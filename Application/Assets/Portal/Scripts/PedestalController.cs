@@ -11,15 +11,17 @@ public class PedestalController : MonoBehaviour
     private List<DetectedPlane> newTrackedPlanes = new List<DetectedPlane>();
     public GameObject GridPrefab;
     public GameObject ARCamera;
+    public GameObject PedestalPrefab;
 
     private GameObject Pedestal;
 
     // Start is called before the first frame update
     void Start()
     {
-        PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
-        Pedestal = Resources.Load<GameObject>("Prefabs/Pedestal Prefabs/" + poi.Name);
-        Instantiate(Pedestal);
+        //PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
+        /* Instantiate(Resources.Load<GameObject>("Prefabs/Pedestal Prefabs/Duncan of Jordanstone College of Art & Design"));
+         GameObject.Find("Duncan of Jordanstone College of Art & Design(Clone)").SetActive(false);*/
+        Pedestal = Instantiate(PedestalPrefab);
         Pedestal.SetActive(false);
     }
 
@@ -59,6 +61,7 @@ public class PedestalController : MonoBehaviour
             Vector3 cameraPosition = ARCamera.transform.position;
             cameraPosition.y = hit.Pose.position.y;
             Pedestal.transform.LookAt(cameraPosition, Pedestal.transform.up);
+            Pedestal.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
 
             Pedestal.transform.parent = anchor.transform;
         }

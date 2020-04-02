@@ -117,7 +117,7 @@ public class Manager : MonoBehaviour
         {
             turnOnButtons(arButtons);
             //Grey out the AR buttons for which we don't have a scene.
-            foreach (GameObject button in arButtons)
+            /*foreach (GameObject button in arButtons)
             {
                 if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal) ||
                     (button.name.Contains("360") && currentPointOfInterest.Has360) ||
@@ -131,7 +131,7 @@ public class Manager : MonoBehaviour
                     button.GetComponent<Button>().interactable = false;
                     button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(0, 0, 0);
                 }
-            }
+            }*/
         }
     }
 
