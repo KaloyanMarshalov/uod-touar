@@ -177,22 +177,30 @@ PrefabInstance:
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_text
-      value: Lorem Ipsum
+      value: Designed by J M Paton and T G Low for Walter Underwood & Partners, this
+        opened in 1965 to house Civil and Mechanical Engineering. It was named after
+        Angus Fulton, a former UCD student who became professor of engineering and
+        served as Principal, 1939-46.
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 11
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 2
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887415466573815372, guid: 9c87ff5697bfcf7478070235ee201de6,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1887415466573815373, guid: 9c87ff5697bfcf7478070235ee201de6,
         type: 3}
