@@ -24,8 +24,8 @@ public class Manager : MonoBehaviour
     private GameObject[] pathAndARSceneButtons;
     private Vector2d cachedLatLong;
     private DataService dataService;
-    public PointOfInterest currentPointOfInterest = null;
-    public Route currentRoute = null;
+    public PointOfInterest currentPointOfInterest;
+    public Route currentRoute;
 
     private void Awake()
     {
@@ -80,7 +80,7 @@ public class Manager : MonoBehaviour
                     GameObject.Find("SelectPathButton").SetActive(false);
                 }
 
-                string message = "You have arrived at: " + currentPointOfInterest.Name + "!";
+                string message = "You have arrived at: " + currentPointOfInterest.Name;
                 _UITextbox.GetComponent<Text>().text = message;
                 Handheld.Vibrate();
                 return;
@@ -122,9 +122,11 @@ public class Manager : MonoBehaviour
             //Grey out the AR buttons for which we don't have a scene.
             foreach (GameObject button in arButtons)
             {
-                if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal) ||
-                    (button.name.Contains("360") && currentPointOfInterest.Has360) ||
-                    (button.name.Contains("Pedestal") && currentPointOfInterest.HasPedestal))
+                Debug.Log(button.name);
+                Debug.Log(currentPointOfInterest.Has360);
+                if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal == 1) ||
+                    (button.name.Contains("360") && currentPointOfInterest.Has360 == 1) ||
+                    (button.name.Contains("Pedestal") && currentPointOfInterest.HasPedestal == 1))
                 {
                     button.GetComponent<Button>().interactable = true;
                     button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(255, 255, 255);

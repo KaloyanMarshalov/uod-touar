@@ -13,7 +13,7 @@ public class PointOfInterest
     public float Longitude { get; set; }
     [NotNull]
     public bool Visited { get; set; }
-    public bool Has360 { get; set; }
-    public bool HasPortal { get; set; }
-    public bool HasPedestal { get; set; }
+    public int Has360 { get; set; }
+    public int HasPortal { get; set; }
+    public int HasPedestal { get; set; }
 }

@@ -63,7 +63,10 @@ public class SelectPath : MonoBehaviour
             var materials = frame.transform.Find("PhotoFrame").GetComponent<MeshRenderer>().materials;
             Color frameColor;
             ColorUtility.TryParseHtmlString(routes[i].ColourHex, out frameColor);
-            materials[0].color = frameColor;
+            foreach(var material in materials)
+            {
+                material.color = frameColor;
+            }
             frame.transform.Find("Image").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Routes/" + routes[i].Name);
         }
     }
