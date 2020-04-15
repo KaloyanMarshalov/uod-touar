@@ -70,7 +70,6 @@ public class Manager : MonoBehaviour
             {
                 currentPointOfInterest = dataService.getPointOfInterest(markerHolder.transform.GetChild(i).name);
 
-                //56.4577859982524, -2.97879196121313
                 var connectedRoutes = dataService.getRoutesForPointOfInterest(currentPointOfInterest);
                 turnOnButtons(pathAndARSceneButtons);
 
@@ -122,11 +121,9 @@ public class Manager : MonoBehaviour
             //Grey out the AR buttons for which we don't have a scene.
             foreach (GameObject button in arButtons)
             {
-                Debug.Log(button.name);
-                Debug.Log(currentPointOfInterest.Has360);
-                if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal == 1) ||
-                    (button.name.Contains("360") && currentPointOfInterest.Has360 == 1) ||
-                    (button.name.Contains("Pedestal") && currentPointOfInterest.HasPedestal == 1))
+                if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal) ||
+                    (button.name.Contains("360") && currentPointOfInterest.Has360) ||
+                    (button.name.Contains("Pedestal") && currentPointOfInterest.HasPedestal))
                 {
                     button.GetComponent<Button>().interactable = true;
                     button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(255, 255, 255);
