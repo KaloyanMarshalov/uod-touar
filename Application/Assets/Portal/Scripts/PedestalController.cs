@@ -18,10 +18,9 @@ public class PedestalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
-        /* Instantiate(Resources.Load<GameObject>("Prefabs/Pedestal Prefabs/Duncan of Jordanstone College of Art & Design"));
-         GameObject.Find("Duncan of Jordanstone College of Art & Design(Clone)").SetActive(false);*/
-        Pedestal = Instantiate(PedestalPrefab);
+        PointOfInterest poi = GameObject.Find("Manager").GetComponent<Manager>().currentPointOfInterest;
+
+        Pedestal = Instantiate(Resources.Load<GameObject>("Prefabs/Pedestal Prefabs/" + poi.Name));
         Pedestal.SetActive(false);
     }
 

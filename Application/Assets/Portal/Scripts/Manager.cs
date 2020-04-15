@@ -29,13 +29,16 @@ public class Manager : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("Location");
         arButtons = GameObject.FindGameObjectsWithTag("ExtraARButtons");
         pathAndARSceneButtons = GameObject.FindGameObjectsWithTag("PathAndARSceneButtons");
         turnOffButtons(arButtons);
         turnOffButtons(pathAndARSceneButtons);
         dataService = new DataService("uod-toar.db");
+    }
+
+    private void Start()
+    {
+        SceneManager.LoadScene("Location");
     }
 
     void Update()
@@ -117,7 +120,7 @@ public class Manager : MonoBehaviour
         {
             turnOnButtons(arButtons);
             //Grey out the AR buttons for which we don't have a scene.
-            /*foreach (GameObject button in arButtons)
+            foreach (GameObject button in arButtons)
             {
                 if ((button.name.Contains("Portal") && currentPointOfInterest.HasPortal) ||
                     (button.name.Contains("360") && currentPointOfInterest.Has360) ||
@@ -131,7 +134,7 @@ public class Manager : MonoBehaviour
                     button.GetComponent<Button>().interactable = false;
                     button.transform.Find("UI Button Image").GetComponent<Image>().color = new Color(0, 0, 0);
                 }
-            }*/
+            }
         }
     }
 
