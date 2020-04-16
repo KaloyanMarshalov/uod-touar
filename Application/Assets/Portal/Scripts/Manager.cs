@@ -65,7 +65,7 @@ public class Manager : MonoBehaviour
             if (distance < DISTANCE_FROM_TARGET)
             {
                 currentPointOfInterest = dataService.getPointOfInterest(markerHolder.transform.GetChild(i).name);
-
+                
                 var connectedRoutes = dataService.getRoutesForPointOfInterest(currentPointOfInterest);
                 turnOnButtons(pathAndARSceneButtons);
 
@@ -82,6 +82,12 @@ public class Manager : MonoBehaviour
             }
             else
             {
+                //we've left a location, so mark it as visited.
+                if(currentPointOfInterest != null && currentRoute != null)
+                {
+                    dataService.updatePointOfInterestFlag(currentPointOfInterest, "Visited", true);
+                }
+
                 _UITextbox.GetComponent<Text>().text = "Please make your way to one of the locations.";
                 turnOffButtons(pathAndARSceneButtons);
                 turnOffButtons(arButtons);

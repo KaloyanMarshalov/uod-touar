@@ -130,7 +130,10 @@ public class DataService  {
 		foreach(POI_Route poi_route in poi_routes)
 		{
 			PointOfInterest pointOfInterest = _connection.Table<PointOfInterest>().Where(poi => poi.Id.Equals(poi_route.PointOfInterestId)).First();
-			POIs.Add(pointOfInterest);
+			if(!pointOfInterest.Visited)
+			{
+				POIs.Add(pointOfInterest);
+			}
 		}
 
 		return POIs;
@@ -150,5 +153,14 @@ public class DataService  {
 		}
 
 		return routes;
+	}
+
+	//Would have this belong to the PointOfInterest class, but that's not possible with the SQLite framework
+	public void updatePointOfInterestFlag(PointOfInterest poi, string field, bool value)
+	{
+		int boolCast = value ? 1 : 0;
+		string query = "UPDATE PointOfInterest SET " + field + "='" + boolCast + "' WHERE Id = '" + poi.Id + "';";
+		Debug.Log(query);
+		_connection.Execute(query);
 	}
 }
