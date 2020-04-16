@@ -19,5 +19,4 @@ public class PointOfInterest
     public bool HasPortal { get; set; }
     [NotNull]
     public bool HasPedestal { get; set; }
-
 }

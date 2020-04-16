@@ -1,11 +1,7 @@
-﻿using Mapbox.Examples;
+﻿using Mapbox.Json.Linq;
 using Mapbox.Unity.Location;
 using Mapbox.Utils;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -88,6 +84,7 @@ public class Manager : MonoBehaviour
             {
                 _UITextbox.GetComponent<Text>().text = "Please make your way to one of the locations.";
                 turnOffButtons(pathAndARSceneButtons);
+                turnOffButtons(arButtons);
             }
         }
     }

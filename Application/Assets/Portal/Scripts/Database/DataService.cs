@@ -94,7 +94,10 @@ public class DataService  {
 				// For some reason the parsers takes Long,Lat coordinates, so the GMAPS output needs to be flipped
 				Latitude = float.Parse(latLong[1]),
 				Longitude = float.Parse(latLong[0]),
-				Visited = false
+				Visited = false,
+				Has360 = false,
+				HasPortal = false,
+				HasPedestal = true
 			};
 			pois.Add(poi);
 		}
