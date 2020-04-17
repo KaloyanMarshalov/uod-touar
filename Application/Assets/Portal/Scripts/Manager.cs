@@ -30,6 +30,7 @@ public class Manager : MonoBehaviour
         turnOffButtons(arButtons);
         turnOffButtons(pathAndARSceneButtons);
         dataService = new DataService("uod-toar.db");
+        currentRoute = dataService.getRoute("Social Sciences");
     }
 
     private void Start()
@@ -70,10 +71,10 @@ public class Manager : MonoBehaviour
                 turnOnButtons(pathAndARSceneButtons);
 
                 //Hide the Routes button since we are on a path and not on a hub
-                if (currentRoute != null && connectedRoutes.Count <= 1)
-                {
+                //if (currentRoute != null && connectedRoutes.Count <= 1)
+                //{
                     GameObject.Find("SelectPathButton").SetActive(false);
-                }
+                //}
 
                 string message = "You have arrived at: " + currentPointOfInterest.Name;
                 _UITextbox.GetComponent<Text>().text = message;
