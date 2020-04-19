@@ -30,7 +30,7 @@ public class Manager : MonoBehaviour
         turnOffButtons(arButtons);
         turnOffButtons(pathAndARSceneButtons);
         dataService = new DataService("uod-toar.db");
-        currentRoute = dataService.getRoute("Formal and Applied Sciences");
+        currentRoute = dataService.getRoute("Life Sciences");
     }
 
     private void Start()
