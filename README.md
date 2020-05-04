@@ -1,14 +1,16 @@
 # University of Dundee TouAR
 ### Honours Project 2019/2020 - Augmented Reality tour around campus
+<img src="collage.png" />
 
 ## 1. Description
+Mobile Augmented Reality application built using Unity3D, Google ARCore and Mapbox. This project was part of my honours coursework at the University of Dundee during the 2019/2020 academic year and thus contains both source code and other appendices. 
 
-TODO: Description of the project
+The application takes users on a historic tour around the university campus. There are 4 different routes available for the tour, each focused around one of the main teaching areas of the institution. The path navigates around the major buildings, offering Augmneted Reality interactions at each location.
 
 ## 2. User Manual
 !NB - upadete the Build.apk to be the final version
 
-Download and install the Build.apk file onto an [AR Core supported device](https://developers.google.com/ar/discover/supported-devices). It might be necessary to enable the installation of third-party apks in the device settings. 
+Download and install the <a href="https://dmail-my.sharepoint.com/:u:/g/personal/kvzmarshalov_dundee_ac_uk/EY2nbH4gajlGsHJaSFqUEp8Bm_sCXCmCvFnhvMD2Nd07Ew?e=ePGh7n">Build.apk</a> file onto an [AR Core supported device](https://developers.google.com/ar/discover/supported-devices). It might be necessary to enable the installation of third-party apks in the device settings. 
 
 Once launched, please give the application permissions to use Location data and the Camera. A popup should appear that requests the permissions when in the map view and on one of the Augmented Reality interactions. 
 
@@ -28,7 +30,7 @@ The map view displays the available points of interest, which are associated wit
 
 Note that points of interest can only be visited once, regardless of the selected route.
 
-## 3. Acknowledgements
+## 3. Licensing
 
 All resources used in the project are for educational purposes only and are owned by their respective owners. All copyrights belong to them. The list below contains citations to the resources used within the application:
 
