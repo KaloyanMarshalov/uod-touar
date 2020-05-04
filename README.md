@@ -29,4 +29,34 @@ The map view displays the available points of interest, which are associated wit
 Note that points of interest can only be visited once, regardless of the selected route.
 
 ## 3. Acknowledgements
-TODO: add references to resources here
+
+All resources used in the project are for educational purposes only and are owned by their respective owners. All copyrights belong to them. The list below contains citations to the resources used within the application:
+
+<a href="https://skfb.ly/6SsGS" target="_blank">"3D Architecture | Photo frame"</a> by <a> Dylan Dreyer Varsics</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank">CC BY 4.0</a>
+
+<a href="https://sketchfab.com/DundeeDental" target="_blank">"3D Dentistry Models"</a> by <a href="https://sketchfab.com/DundeeDental" target="_blank"> University of Dundee, School of Dentistry</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank">CC BY 4.0</a>
+
+<a href="https://sketchfab.com/uod_museums" target="_blank">"3D Models"</a> by <a href="https://sketchfab.com/uod_museums" target="_blank"> University of Dundee Museum Collections</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank">CC BY 4.0</a>
+
+<a href="https://artuk.org/discover/artworks/search/collectionx:university-of-dundee-duncan-of-jordanstone-college-collection-1446" target="_blank">"All artwork is form Art UK"</a> by <a>various authors</a>, <a href="https://www.dundee.ac.uk/djcad/" target="_blank">University of Dundee, Duncan of Jordanstone College Collection</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">CC BY-NC-ND 4.0</a>
+
+<a href="https://www.behance.net/gallery/70910597/Demiurge-33" target="_blank">"Demiurge-33"</a> by <a href="https://www.behance.net/kattphatt" target="_blank">Katt Phatt</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank">CC BY-NC-ND 4.0</a>
+
+<a href="https://www.newscientist.com/term/dna/" target="_blank">"KTSDESIGN/SCIENCE PHOTO LIBRARY/Getty"</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank">CC BY 4.0</a>
+
+<a href="https://www.independent.co.uk/voices/mental-health-crisis-world-social-work-day-depression-anxiety-support-community-care-a8264666.html" target="_blank">"Mental Health"</a> by <a href="https://www.independent.co.uk/voices/mental-health-crisis-world-social-work-day-depression-anxiety-support-community-care-a8264666.html" target="_blank">Getty</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0" target="_blank">CC BY 4.0</a>
+
+<a href="https://en.wikipedia.org/wiki/Andrew_Carnegie#/media/File:Andrew_Carnegie,_three-quarter_length_portrait,_seated,_facing_slightly_left,_1913.jpg" target="_blank">"Andrew Carnegie, American businessman and philanthropist."</a> by <a>Theodore C. Marceau </a> is in the <a href="https://wiki.creativecommons.org/Public_domain" target="_blank">Public Domain</a>
+
+Patrick Geddes: Luminary or Prophet of Demonic Planning - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/Patrick-Geddes-online-at-wwwpatrickgeddescentreorguk-accessed-29-July-2019_fig1_338066777 [accessed 26 Apr, 2020] 
+
+<a href="https://www.turbosquid.com/3d-models/free-max-model-architectural-modules/767833">Pedestal</a> by Roombaroom
+
+<a href="https://www.turbosquid.com/3d-models/3d-door-1323686">3D Door</a> by 
+uEhelp
+
+All icons from various users at  www.flaticon.com. 
+
+Google Street View panoramas are owned by Google and/or by their respective owners. All copyrights belong to them.
+
+All other materials are owned by the Dundee University Archive Services and/or by their respective owners. All copyrights beling to them.
