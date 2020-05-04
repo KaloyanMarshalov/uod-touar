@@ -8,7 +8,6 @@ Mobile Augmented Reality application built using Unity3D, Google ARCore and Mapb
 The application takes users on a historic tour around the university campus. There are 4 different routes available for the tour, each focused around one of the main teaching areas of the institution. The path navigates around the major buildings, offering Augmneted Reality interactions at each location.
 
 ## 2. User Manual
-!NB - upadete the Build.apk to be the final version
 
 Download and install the <a href="https://dmail-my.sharepoint.com/:u:/g/personal/kvzmarshalov_dundee_ac_uk/EY2nbH4gajlGsHJaSFqUEp8Bm_sCXCmCvFnhvMD2Nd07Ew?e=ePGh7n">Build.apk</a> file onto an [AR Core supported device](https://developers.google.com/ar/discover/supported-devices). It might be necessary to enable the installation of third-party apks in the device settings. 
 
@@ -17,7 +16,7 @@ Once launched, please give the application permissions to use Location data and 
 The map view displays the available points of interest, which are associated with buildings on the University of Dundee campus. 
 
 1. Navigate to that building in real life in order to be presented with the available interactions. Alternatively, use a GPS mocking application on your Android device and change your coordinates according to the Coordinates.txt file
-2. Press the yellow roadsign icon at the bottom right of the screen in order to begin the Select Path interaction. 
+2. Press the yellow road sign icon at the bottom right of the screen in order to begin the Select Path interaction. 
 
     **Note**: The same interaction will be available throughout the selected path, which will allow you to change routes.
 
@@ -26,7 +25,7 @@ The map view displays the available points of interest, which are associated wit
 5. Press on the AR Interactions button in the bottom right of the screen to display the available interactions for the node. 
 6. Select an interaction.
 7. Find a horizontal surface to display the Augmented Reality objects on. Recognised surfaces are marked with a grey mesh on screen. Pressing on the surface will spawn the interaction.
-8. Going back to the map is done by clikcing on the camera icon in the bottom left corner of the screen, followed by a click on the map icon in the same position
+8. Going back to the map is done by clicking on the camera icon in the bottom left corner of the screen, followed by a click on the map icon in the same position
 
 Note that points of interest can only be visited once, regardless of the selected route.
 
